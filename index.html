@@ -77,6 +77,13 @@
           input.value = "";
         }
       });
+
+      // 受け取ったメッセージをulタグの中にliタグとして入れていく
+      socket.on("chat message", function (msg) {
+        let item = document.createElement("li");
+        item.textContent = msg;
+        messages.appendChild(item);
+      });
     </script>
   </body>
 </html>
