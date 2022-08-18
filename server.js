@@ -6,7 +6,11 @@ const io = require("socket.io")(server);
 const PORT = 3000;
 
 app.get("/", (req, res) => {
-  res.send("Hello world");
+  res.sendFile(__dirname + "/index.html");
+});
+
+io.on("connection", (socket) => {
+  console.log("ユーザーが接続しました");
 });
 
 server.listen(PORT, () => {
