@@ -13,7 +13,9 @@ io.on("connection", (socket) => {
   console.log("ユーザーが接続しました");
 
   socket.on("chat message", (msg) => {
-    console.log("メッセージ:" + msg);
+    // console.log("メッセージ:" + msg);
+    // サーバーが受け取ったメッセージをクライアント側に送り、みんなが見れるようにする
+    io.emit("chat message", msg);
   });
 });
 
